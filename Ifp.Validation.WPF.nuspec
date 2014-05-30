@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Ifp.Validation.WPF</id>
+    <version>1.0.0.0</version>
+    <authors>m.strecker</authors>
+    <owners>m.strecker</owners>
+        <licenseUrl>http://www.microsoft.com/en-us/openness/licenses.aspx</licenseUrl>
+        <projectUrl>https://ifp.visualstudio.com/DefaultCollection/Ifp.Commons</projectUrl>
+        <iconUrl>https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/03-32.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package description</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags></tags>
+    <dependencies>
+      <dependency id="Ifp.Validation" version="1.0" />
+    </dependencies>
+  </metadata>
+    <files>
+        <file src="bin\Release\Ifp.Validation.WPF.dll" target="lib\net40\Ifp.Validation.WPF.dll" />
+    </files>  
+</package>
