@@ -1,0 +1,20 @@
+﻿<ResourceDictionary 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:validation="clr-namespace:Ifp.Validation;assembly=Ifp.Validation"
+             mc:Ignorable="d">
+    <DataTemplate DataType="{x:Type validation:ValidationSeverity+SuccessSeverity}">
+        <Image Source="Images/tick.png" Stretch="Uniform"/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type validation:ValidationSeverity+InformationSeverity}">
+        <Image Source="Images/information.png" Stretch="Uniform"/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type validation:ValidationSeverity+WarningSeverity}">
+        <Image Source="Images/exclamation.png" Stretch="Uniform"/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type validation:ValidationSeverity+ErrorSeverity}">
+        <Image Source="Images/cross.png" Stretch="Uniform"/>
+    </DataTemplate>
+</ResourceDictionary>
