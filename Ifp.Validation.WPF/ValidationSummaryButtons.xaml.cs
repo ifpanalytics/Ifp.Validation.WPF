@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ifp.Validation.WPF.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,9 @@ namespace Ifp.Validation.WPF
 
         public static readonly DependencyProperty OkCommandProperty =
             DependencyProperty.Register("OkCommand", typeof(ICommand), typeof(ValidationSummaryButtons), new UIPropertyMetadata(OnOkCommandPropertyChanged));
+
+        public static readonly DependencyProperty ValidationWPFL8nServiceProperty =
+            DependencyProperty.Register("ValidationWPFL8nService", typeof(IValidationWPFL8nService), typeof(ValidationSummaryButtons), new UIPropertyMetadata());
 
         public ValidationSummaryButtons()
         {
@@ -72,6 +76,11 @@ namespace Ifp.Validation.WPF
         {
             get { return (ICommand)GetValue(OkCommandProperty); }
             set { SetValue(OkCommandProperty, value); }
+        }
+        public IValidationWPFL8nService ValidationWPFL8nService
+        {
+            get { return (IValidationWPFL8nService)GetValue(ValidationWPFL8nServiceProperty); }
+            set { SetValue(ValidationWPFL8nServiceProperty, value); }
         }
     }
 }

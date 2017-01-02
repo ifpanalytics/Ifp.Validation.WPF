@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Ifp.Validation.WPF.MousePointer;
+using System.Globalization;
+using Ifp.Validation.WPF.Localization;
 
 namespace Ifp.Validation.WPF
 {
     public class ValidationSummaryPresentationService : IValidationSummaryPresentationService
     {
-        public bool ShowValidationSummary(ValidationSummary validationSummary)
+        public ValidationSummaryPresentationService(IValidationWPFL8nService validationWPFL8nService)
         {
-            return ShowValidationSummary(validationSummary, false);
+            ValidationWPFL8nService = validationWPFL8nService;
         }
 
-        public bool ShowValidationSummary(ValidationSummary validationSummary, bool showOnlyOnFailures)
-        {
-            return ShowValidationSummary(validationSummary, showOnlyOnFailures, null);
-        }
+        protected IValidationWPFL8nService ValidationWPFL8nService { get; }
 
-        public bool ShowValidationSummary(ValidationSummary validationSummary, bool showOnlyOnFailures, string headerText)
-        {
-            return ShowValidationSummary(validationSummary, showOnlyOnFailures, headerText, null);
-        }
+        public bool ShowValidationSummary(ValidationSummary validationSummary) => ShowValidationSummary(validationSummary, false);
+
+        public bool ShowValidationSummary(ValidationSummary validationSummary, bool showOnlyOnFailures) => ShowValidationSummary(validationSummary, showOnlyOnFailures, null);
+
+        public bool ShowValidationSummary(ValidationSummary validationSummary, bool showOnlyOnFailures, string headerText) => ShowValidationSummary(validationSummary, showOnlyOnFailures, headerText, null);
 
         public bool ShowValidationSummary(ValidationSummary validationSummary, bool showOnlyOnFailures, string headerText, string howToProceedMessage)
         {
@@ -35,11 +35,12 @@ namespace Ifp.Validation.WPF
             {
 
                 var sw = new ValidationSummaryWindow();
-                sw.ValidationSummary = validationSummary;
-                if (!String.IsNullOrWhiteSpace(headerText))
-                    sw.Header = headerText;
+                sw.Title = ValidationWPFL8nService.DialogTitle;
+                sw.Header = String.IsNullOrWhiteSpace(headerText) ? ValidationWPFL8nService.Header : headerText;
                 if (!String.IsNullOrWhiteSpace(howToProceedMessage))
                     sw.HowToProceedMessage = howToProceedMessage;
+                sw.ValidationWPFL8nService = this.ValidationWPFL8nService;
+                sw.ValidationSummary = validationSummary;
                 var res = sw.ShowDialog();
                 return res ?? false;
             }

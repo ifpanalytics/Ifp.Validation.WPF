@@ -72,11 +72,15 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="{Binding Path=Header, ElementName=root}" FontSize="16" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="20" TextWrapping="Wrap"/>
         <Border Grid.Row="1" Margin="5,20" BorderThickness="1" BorderBrush="LightBlue" Background="{StaticResource summaryBackground}">
-            <my:ValidationSummaryPresenter ValidationSummary="{Binding ValidationSummary, ElementName=root}" />
+            <my:ValidationSummaryPresenter ValidationSummary="{Binding ValidationSummary, ElementName=root}" ValidationWPFL8nService="{Binding Path=ValidationWPFL8nService, ElementName=root}"/>
         </Border>
         <TextBlock Grid.Row="2" Text="{Binding Path=HowToProceedMessage, ElementName=root}" HorizontalAlignment="Center" TextAlignment="Center" Margin="10" TextWrapping="Wrap" />
         <StackPanel Grid.Row="3" HorizontalAlignment="Right">
-            <my:ValidationSummaryButtons ValidationSummary="{Binding ValidationSummary, ElementName=root}" OkCommand="{Binding Path=OkCommand, ElementName=root}" CancelCommand="{Binding CancelCommand, ElementName=root}"/>
+            <my:ValidationSummaryButtons 
+                ValidationSummary="{Binding ValidationSummary, ElementName=root}" 
+                OkCommand="{Binding Path=OkCommand, ElementName=root}" 
+                CancelCommand="{Binding CancelCommand, ElementName=root}"
+                ValidationWPFL8nService="{Binding Path=ValidationWPFL8nService, ElementName=root}"/>
         </StackPanel>
     </Grid>
 </Window>

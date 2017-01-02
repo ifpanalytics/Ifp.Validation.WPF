@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ifp.Validation.WPF.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,9 @@ namespace Ifp.Validation.WPF
         public static readonly DependencyProperty ValidationSummaryProperty =
             DependencyProperty.Register("ValidationSummary", typeof(ValidationSummary), typeof(ValidationSummaryPresenter), new UIPropertyMetadata(OnValidationSummaryPropertyChanged));
 
+        public static readonly DependencyProperty ValidationWPFL8nServiceProperty =
+            DependencyProperty.Register("ValidationWPFL8nService", typeof(IValidationWPFL8nService), typeof(ValidationSummaryPresenter), new UIPropertyMetadata());
+
         public ValidationSummaryPresenter()
         {
             InitializeComponent();
@@ -39,6 +43,12 @@ namespace Ifp.Validation.WPF
         {
             get { return (ValidationSummary)GetValue(ValidationSummaryProperty); }
             set { SetValue(ValidationSummaryProperty, value); }
+        }
+
+        public IValidationWPFL8nService ValidationWPFL8nService
+        {
+            get { return (IValidationWPFL8nService)GetValue(ValidationWPFL8nServiceProperty); }
+            set { SetValue(ValidationWPFL8nServiceProperty, value); }
         }
     }
 }

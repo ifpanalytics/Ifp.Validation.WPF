@@ -52,6 +52,6 @@
                 </ControlTemplate>
             </ItemsControl.Template>
         </ItemsControl>
-        <TextBlock Name="tb_Empty" Text="Gültigkeitsprüfung erfolgreich!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Name="tb_Empty" Text="{Binding Path=ValidationWPFL8nService.ValidationSuccessful, ElementName=root}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

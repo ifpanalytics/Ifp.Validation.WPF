@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ifp.Validation.WPF.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,8 +28,12 @@ namespace Ifp.Validation.WPF
 
         public static readonly DependencyProperty HowToProceedMessageProperty =
             DependencyProperty.Register("HowToProceedMessage", typeof(string), typeof(ValidationSummaryWindow), new UIPropertyMetadata(""));
-        
-       
+
+        public static readonly DependencyProperty ValidationWPFL8nServiceProperty =
+            DependencyProperty.Register("ValidationWPFL8nService", typeof(IValidationWPFL8nService), typeof(ValidationSummaryWindow), new PropertyMetadata());
+
+
+
         abstract class WindowCommandBase : ICommand
         {
             readonly ValidationSummaryWindow _Owner;
@@ -39,15 +44,9 @@ namespace Ifp.Validation.WPF
             {
                 _Owner = owner;
             }
-            protected ValidationSummaryWindow Owner
-            {
-                get { return _Owner; }
-            }
+            protected ValidationSummaryWindow Owner => _Owner;
 
-            public virtual bool CanExecute(object parameter)
-            {
-                return true;
-            }
+            public virtual bool CanExecute(object parameter) => true;
 
             protected virtual void OnCanExecuteChanged()
             {
@@ -87,13 +86,10 @@ namespace Ifp.Validation.WPF
             }
         }
 
-        readonly ICommand _OkCommand;
-        readonly ICommand _CancelCommand;
-
         public ValidationSummaryWindow()
         {
-            _OkCommand = new OkCommandClass(this);
-            _CancelCommand = new CancelCommandClass(this);
+            OkCommand = new OkCommandClass(this);
+            CancelCommand = new CancelCommandClass(this);
             InitializeComponent();
         }
         public ValidationSummary ValidationSummary
@@ -112,13 +108,15 @@ namespace Ifp.Validation.WPF
             get { return (string)GetValue(HowToProceedMessageProperty); }
             set { SetValue(HowToProceedMessageProperty, value); }
         }
-        public ICommand OkCommand
+
+        public IValidationWPFL8nService ValidationWPFL8nService
         {
-            get { return _OkCommand; }
+            get { return (IValidationWPFL8nService)GetValue(ValidationWPFL8nServiceProperty); }
+            set { SetValue(ValidationWPFL8nServiceProperty, value); }
         }
-        public ICommand CancelCommand
-        {
-            get { return _CancelCommand; }
-        }
+
+        public ICommand OkCommand { get; }
+
+        public ICommand CancelCommand { get; }
     }
 }

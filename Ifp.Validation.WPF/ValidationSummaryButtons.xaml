@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <UniformGrid Rows="1">
-        <Button Command="{Binding OkCommand, ElementName=root}" Name="bt_Ok" HorizontalContentAlignment="Stretch" >
+        <Button Command="{Binding OkCommand, ElementName=root}" Name="bt_Ok" HorizontalContentAlignment="Stretch" Margin="10" MinWidth="80">
             <Button.Content>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -22,10 +22,10 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <ContentPresenter Grid.Column="0" Content="{Binding Path=ValidationSummary.Severity, ElementName=root, FallbackValue={x:Static validation:ValidationSeverity.Success}, TargetNullValue={x:Static validation:ValidationSeverity.Success}}" Margin="3" Width="16" Height="16" RenderOptions.BitmapScalingMode="Fant"/>
-                    <TextBlock Grid.Column="1" Text="OK" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text="{Binding Path=ValidationWPFL8nService.OK, ElementName=root}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
             </Button.Content>
         </Button>
-        <Button Name="bt_Cancel" Content="Abbrechen" Command="{Binding CancelCommand, ElementName=root}" MinWidth="80" />
+        <Button Name="bt_Cancel" Content="{Binding Path=ValidationWPFL8nService.Cancel, ElementName=root}" Command="{Binding CancelCommand, ElementName=root}" MinWidth="80" Margin="10"/>
     </UniformGrid>
 </UserControl>

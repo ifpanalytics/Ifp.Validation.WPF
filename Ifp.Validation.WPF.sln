@@ -1,19 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ifp.Validation.WPF", "Ifp.Validation.WPF.csproj", "{E37CAB5D-E706-4A44-BFF8-55F6F6811B63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ifp.Validation.WPF", "Ifp.Validation.WPF\Ifp.Validation.WPF.csproj", "{E37CAB5D-E706-4A44-BFF8-55F6F6811B63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ifp.Validation.WPF.Demo", "Ifp.Validation.WPF.Demo\Ifp.Validation.WPF.Demo.csproj", "{9A4B1595-483F-4771-A599-A7035F7ABF0C}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://ifp.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Ifp.Validation.WPF.csproj
-		SccLocalPath1 = .
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -23,6 +17,10 @@ Global
 		{E37CAB5D-E706-4A44-BFF8-55F6F6811B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E37CAB5D-E706-4A44-BFF8-55F6F6811B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E37CAB5D-E706-4A44-BFF8-55F6F6811B63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A4B1595-483F-4771-A599-A7035F7ABF0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A4B1595-483F-4771-A599-A7035F7ABF0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A4B1595-483F-4771-A599-A7035F7ABF0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A4B1595-483F-4771-A599-A7035F7ABF0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
