@@ -26,13 +26,14 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <UniformGrid Grid.Row="0">
-                <Button Name="bt_Example1" Content="Example1 - English. Error severity and others" Click="bt_Example1_Click"/>
-                <Button Name="bt_Example2" Content="Example2 - German." Click="bt_Example2_Click" />
-                <Button Name="bt_Example3" Content="Example3 - English. Text customizations in ShowValidationSummary overloads." Click="bt_Example3_Click" />
-                <Button Name="bt_Example4" Content="Example4 - English. Warning severity." Click="bt_Example4_Click" />
-                <Button Name="bt_Example5" Content="Example5 - English. Information severity." Click="bt_Example5_Click" />
-                <Button Name="bt_Example6" Content="Example6 - English. Display of the dialog on success." Click="bt_Example6_Click" />
-                <Button Name="bt_Example7" Content="Example7 - English. No dialog on success." Click="bt_Example7_Click" />
+                <Button Name="bt_Example1" Content="Example1 - Error severity and others" Click="bt_Example1_Click"/>
+                <Button Name="bt_Example2" Content="Example2 - German customization of buttons and headers." Click="bt_Example2_Click" />
+                <Button Name="bt_Example3" Content="Example3 - Text customizations in ShowValidationSummary overloads." Click="bt_Example3_Click" />
+                <Button Name="bt_Example4" Content="Example4 - Warning severity." Click="bt_Example4_Click" />
+                <Button Name="bt_Example5" Content="Example5 - Information severity." Click="bt_Example5_Click" />
+                <Button Name="bt_Example6" Content="Example6 - Display of the dialog on success." Click="bt_Example6_Click" />
+                <Button Name="bt_Example7" Content="Example7 - No dialog on success." Click="bt_Example7_Click" />
+                <Button Name="bt_Example8" Content="Example8 - Very long validation list." Click="bt_Example8_Click" />
             </UniformGrid>
             <StatusBar Grid.Row="1" >
                 <StatusBarItem Name="sbi_LastResult"/>

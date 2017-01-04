@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace Ifp.Validation.WPF.Demo
 {
-    /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -29,13 +26,13 @@ namespace Ifp.Validation.WPF.Demo
 
         private static ValidationSummary GetTestValidationSummary()
         {
-            var rule1 = new ValidationRuleDelegate<int>(_ => "A custom information message.".ToFailure(FailureSeverity.Information));
-            var rule2 = new ValidationRuleDelegate<int>(_ => "A custom warning message.".ToFailure(FailureSeverity.Warning));
-            var rule3 = new ValidationRuleDelegate<int>(_ => "A custom error message.".ToFailure(FailureSeverity.Error));
-            var rule4 = new ValidationRuleDelegate<int>(_ => ValidationOutcome.Success);
-            var validator = new RuleBasedValidator<int>(rule1, rule2, rule3, rule4);
-            var summary = validator.Validate(0);
-            return summary;
+            var vsBuilder = new ValidationSummaryBuilder();
+            vsBuilder.Append(TextTemplates.MessageInfoBithdate.ToFailure(FailureSeverity.Information));
+            vsBuilder.Append(TextTemplates.MessageWarningPassword.ToFailure(FailureSeverity.Warning));
+            vsBuilder.Append(TextTemplates.MessageErrorEmail.ToFailure(FailureSeverity.Error));
+            vsBuilder.Append(TextTemplates.MessageErrorSurname.ToFailure(FailureSeverity.Error));
+            vsBuilder.Append(ValidationOutcome.Success);
+            return vsBuilder.ToSummary();
         }
         private void SetLastResult(bool result) => sbi_LastResult.Content = $"Last validation result: {result}";
         private void ResetLastResult() => sbi_LastResult.Content = "Waiting for validation dialog.";
@@ -71,7 +68,7 @@ namespace Ifp.Validation.WPF.Demo
         private void bt_Example4_Click(object sender, RoutedEventArgs e)
         {
             ResetLastResult();
-            var summary = "Custom warning message".ToFailure(FailureSeverity.Warning).ToSummary();
+            var summary = TextTemplates.MessageWarningPassword.ToFailure(FailureSeverity.Warning).ToSummary();
             var summaryPresenter = new ValidationSummaryPresentationService(new ValidationWPFL8nService_en_US());
             var result = summaryPresenter.ShowValidationSummary(summary);
             SetLastResult(result);
@@ -79,7 +76,7 @@ namespace Ifp.Validation.WPF.Demo
         private void bt_Example5_Click(object sender, RoutedEventArgs e)
         {
             ResetLastResult();
-            var summary = "Custom information message".ToFailure(FailureSeverity.Information).ToSummary();
+            var summary = TextTemplates.MessageInfoBithdate.ToFailure(FailureSeverity.Information).ToSummary();
             var summaryPresenter = new ValidationSummaryPresentationService(new ValidationWPFL8nService_en_US());
             var result = summaryPresenter.ShowValidationSummary(summary);
             SetLastResult(result);
@@ -98,6 +95,18 @@ namespace Ifp.Validation.WPF.Demo
             var summary = ValidationOutcome.Success.ToSummary();
             var summaryPresenter = new ValidationSummaryPresentationService(new ValidationWPFL8nService_en_US());
             var result = summaryPresenter.ShowValidationSummary(summary, true);
+            SetLastResult(result);
+        }
+
+        private void bt_Example8_Click(object sender, RoutedEventArgs e)
+        {
+            ResetLastResult();
+            var vsBuilder = new ValidationSummaryBuilder();
+            var r = new Random(0);
+            for (int i = 0; i < 30; i++)
+                vsBuilder.Append(TextTemplates.BlindTexts[r.Next(TextTemplates.BlindTexts.Length)].ToFailure((FailureSeverity)r.Next(3)));
+            var summaryPresenter = new ValidationSummaryPresentationService(new ValidationWPFL8nService_en_US());
+            var result = summaryPresenter.ShowValidationSummary(vsBuilder.ToSummary(), true, "Example 8", "Resize the window, to see layout changes.");
             SetLastResult(result);
         }
     }
