@@ -3,16 +3,17 @@
   <metadata>
     <id>Ifp.Validation.WPF</id>
     <version>1.0.0.0</version>
-    <authors>m.strecker</authors>
-    <owners>m.strecker</owners>
-        <licenseUrl>http://www.microsoft.com/en-us/openness/licenses.aspx</licenseUrl>
-        <projectUrl>https://ifp.visualstudio.com/DefaultCollection/Ifp.Commons</projectUrl>
-        <iconUrl>https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/03-32.png</iconUrl>
+    <authors>Martin Strecker</authors>
+    <owners>Martin Strecker</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/ifpanalytics/Ifp.Validation.WPF</projectUrl>
+    <iconUrl>https://cdn1.iconfinder.com/data/icons/material-core/20/check-circle-outline-32.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Package description</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>Copyright 2014</copyright>
-    <tags></tags>
+    <description>Provides a dialog to show a ValidationSummary (Ifp.Validation package) in WPF.</description>
+    <summary>Ifp.Validation.WPF provides an implementation for the IValidationSummaryPresentationService (Ifp.Validation package) for WPF.</summary>
+    <releaseNotes></releaseNotes>
+    <copyright>2017</copyright>
+    <tags>validation,valid,input,dependency injection,testable,extensible,rules,rules engine,WPF,IValidationSummaryPresentationService</tags>
     <dependencies>
       <dependency id="Ifp.Validation" version="1.0" />
     </dependencies>
