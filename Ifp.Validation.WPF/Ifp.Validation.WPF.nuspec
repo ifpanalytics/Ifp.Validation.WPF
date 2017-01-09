@@ -17,7 +17,14 @@
       <dependency id="Ifp.Validation" version="1.0" />
     </dependencies>
   </metadata>
-    <files>
-        <file src="bin\Release\Ifp.Validation.WPF.dll" target="lib\net40\Ifp.Validation.WPF.dll" />
-    </files>  
+  <files>
+    <file src="bin\Release\net40\Ifp.Validation.WPF.dll" target="lib\net40\Ifp.Validation.WPF.dll" />
+    <file src="bin\Release\net40\Ifp.Validation.WPF.pdb" target="lib\net40\Ifp.Validation.WPF.pdb" />
+    
+    <file src="bin\Release\net45\Ifp.Validation.WPF.dll" target="lib\net45\Ifp.Validation.WPF.dll" />
+    <file src="bin\Release\net45\Ifp.Validation.WPF.pdb" target="lib\net45\Ifp.Validation.WPF.pdb" />
+    
+    <file src="bin\Release\net46\Ifp.Validation.WPF.dll" target="lib\net46\Ifp.Validation.WPF.dll" />
+    <file src="bin\Release\net46\Ifp.Validation.WPF.pdb" target="lib\net46\Ifp.Validation.WPF.pdb" />
+  </files>  
 </package>
