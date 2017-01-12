@@ -4,7 +4,83 @@ This library contains a WPF specific implementation of the
 [IValidationSummaryPresentationService](https://github.com/ifpanalytics/Ifp.Validation/wiki/T_Ifp_Validation_IValidationSummaryPresentationService) that is defined in
 the [Ifp.Validation](https://github.com/ifpanalytics/Ifp.Validation) Nuget package.
 
-This library can display a [ValidationSummary](https://github.com/ifpanalytics/Ifp.Validation/wiki/T_Ifp_Validation_ValidationSummary) as dialog and returns the 
+This library can display a [ValidationSummary](https://github.com/ifpanalytics/Ifp.Validation/wiki/T_Ifp_Validation_ValidationSummary) as a dialog and returns the 
 choice of the user (OK or Cancel):
 
 ![ValidationSummaryPresenter example](Documentation/Media/ValidationSummaryPresenterExample.png)
+
+## How to use
+
+This library contains an implementation of the `IValidationSummaryPresentationService` interface. This interface defines methods
+to show a dialog and returns the choice of the user.
+
+```CS
+// Show the ValidationSummary obtained with the help of the Ifp.Validation package.
+bool ShowSummaryDialog(IValidationSummary summary)
+{
+    // Construct the WPF specific implementation of the IValidationSummaryPresentationService interface
+    var summaryPresenter = new ValidationSummaryPresentationService(new ValidationWPFL8nService_en_US());
+    return summaryPresenter.ShowValidationSummary(summary);
+}
+```
+
+### Register the services for Dependency Injection
+
+If you use a dependency injection framework you must register two services
+
+```CS
+//Simple Service to provide translated text templates.
+container.RegisterService<IValidationWPFL8nService, ValidationWPFL8nService_en_US>();
+//The service itself
+container.RegisterService<IValidationSummaryPresentationService, ValidationSummaryPresentationService>();
+```
+
+### IValidationSummaryPresentationService.ShowValidationSummary overloads
+
+The `ShowValidationSummary` has several overloads with the following parameters:
+
+Parameter                                 | Description | Default
+--- | --- | ---
+`ValidationSummary validationSummary` | The summary to present | -
+`bool showOnlyOnFailures` | If `true` the dialog is shown only if there is at least one failure (with information, warning or error severity). Otherwise the methods returns immediately `true`. If `false` the dialog is always shown.| `false`
+`string headerText` | Sets a custom text above the error list | `null` (A default text is shown)
+`string howToProceedMessage` | A text shown between the error list and the buttons. Can be used to inform the user of the consequences of his choice. | `null`
+
+### Customizing the dialog
+
+The dialog can be customized in three ways:
+
+* Customizing the text
+* Providing custom Severities
+* Building a new dialog
+
+#### Customizing the text
+
+The text shown in the dialog can be changed by providing an implementation of the `` interface:
+
+```CS
+public interface IValidationWPFL8nService
+{
+    string OK { get; }
+    string Cancel { get; }
+    string ValidationSuccessful { get; }
+    string DialogTitle { get; }
+    string Header { get; }
+}
+```
+
+#### Providing custom severities
+
+TODO
+
+#### Building a new dialog
+
+TODO
+
+## How to get
+
+The library can be installed via Nuget [nuget.org/packages/Ifp.Validation.WPF](https://www.nuget.org/packages/Ifp.Validation.WPF/)
+
+```CS
+PS> Install-Package Ifp.Validation.WPF
+```
