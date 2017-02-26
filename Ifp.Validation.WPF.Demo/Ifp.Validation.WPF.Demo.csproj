@@ -37,11 +37,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ifp.Validation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ifp.Validation.1.0.0.0\lib\net40\Ifp.Validation.dll</HintPath>
+      <HintPath>..\packages\Ifp.Validation.1.2.0\lib\net46\Ifp.Validation.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Collections" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomizingSeverity\QuestionSeverity.cs" />
     <Compile Include="TextTemplates.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -109,7 +112,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CustomizingSeverity\" />
+    <Resource Include="CustomizingSeverity\question.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

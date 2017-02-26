@@ -1,4 +1,5 @@
-﻿using Ifp.Validation.WPF.Localization;
+﻿using Ifp.Validation.WPF.Demo.CustomizingSeverity;
+using Ifp.Validation.WPF.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -107,6 +108,18 @@ namespace Ifp.Validation.WPF.Demo
                 vsBuilder.Append(TextTemplates.BlindTexts[r.Next(TextTemplates.BlindTexts.Length)].ToFailure((FailureSeverity)r.Next(3)));
             var summaryPresenter = new ValidationSummaryPresentationService(new ValidationWPFL8nService_en_US());
             var result = summaryPresenter.ShowValidationSummary(vsBuilder.ToSummary(), true, "Example 8", "Resize the window, to see layout changes.");
+            SetLastResult(result);
+        }
+
+        private void bt_Example9_Click(object sender, RoutedEventArgs e)
+        {
+            ResetLastResult();
+            var vsBuilder = new ValidationSummaryBuilder();
+            //A custom outcome defined in the demo project:
+            vsBuilder.Append(new QuestionOutcome("Do you want to proceed?"));
+            vsBuilder.Append("Another error entry".ToFailure(FailureSeverity.Warning));
+            var summaryPresenter = new ValidationSummaryPresentationService(new ValidationWPFL8nService_en_US());
+            var result = summaryPresenter.ShowValidationSummary(vsBuilder.ToSummary(), true, "Example 9", "Question symbol is defined in App.xaml in demo project.");
             SetLastResult(result);
         }
     }

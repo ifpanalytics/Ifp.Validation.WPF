@@ -34,6 +34,7 @@
                 <Button Name="bt_Example6" Content="Example6 - Display of the dialog on success." Click="bt_Example6_Click" />
                 <Button Name="bt_Example7" Content="Example7 - No dialog on success." Click="bt_Example7_Click" />
                 <Button Name="bt_Example8" Content="Example8 - Very long validation list." Click="bt_Example8_Click" />
+                <Button Name="bt_Example9" Content="Example9 - Custom severity." Click="bt_Example9_Click" />
             </UniformGrid>
             <StatusBar Grid.Row="1" >
                 <StatusBarItem Name="sbi_LastResult"/>
