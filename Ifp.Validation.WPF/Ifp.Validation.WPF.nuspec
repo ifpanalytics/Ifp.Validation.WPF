@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Ifp.Validation.WPF</id>
-    <version>1.0.0.0</version>
+    <version>1.2.0.0</version>
     <authors>Martin Strecker</authors>
     <owners>Martin Strecker</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -15,7 +15,7 @@
     <copyright>2017</copyright>
     <tags>validation,valid,input,dependency injection,testable,extensible,rules,rules engine,WPF,IValidationSummaryPresentationService</tags>
     <dependencies>
-      <dependency id="Ifp.Validation" version="1.0" />
+      <dependency id="Ifp.Validation" version="1.2" />
     </dependencies>
   </metadata>
   <files>

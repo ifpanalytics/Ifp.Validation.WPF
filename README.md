@@ -56,7 +56,7 @@ The dialog can be customized in three ways:
 
 #### Customizing the text
 
-The text shown in the dialog can be changed by providing an implementation of the `` interface:
+The text shown in the dialog can be changed by providing an implementation of the `IValidationWPFL8nService` interface:
 
 ```CS
 public interface IValidationWPFL8nService
@@ -71,10 +71,43 @@ public interface IValidationWPFL8nService
 
 #### Providing custom severities
 
-TODO
+The [Ifp.Validation](https://github.com/ifpanalytics/Ifp.Validation) package allows the implementation of custom 
+[severities](https://github.com/ifpanalytics/Ifp.Validation/wiki/T_Ifp_Validation_ValidationSeverity) and
+[outcomes](https://github.com/ifpanalytics/Ifp.Validation/wiki/T_Ifp_Validation_ValidationOutcome) like this:
+
+```CS
+public class QuestionSeverity : ValidationSeverity
+{
+    public static QuestionSeverity Instance = new QuestionSeverity();
+    private QuestionSeverity() { }
+    public override bool AllowsCancel => true;
+    public override bool CausesCancel => false;
+    // This number is responsible for: sort order of outcomes (descending) and the overall outcome (maximum wins).
+    protected override int SeverityAsNumber => 0;
+}
+
+public class QuestionOutcome : ValidationOutcomeWithMessage
+{
+    public QuestionOutcome(string message) : base(message) { }
+    public override ValidationSeverity Severity => QuestionSeverity.Instance;
+}
+```
+
+To provide an icon for the custom severity a `DataTemplate` for the custom severity must be provided. This `DataTemplate` can
+be located in the `Resource` dictionary of `App.xaml`. 
+
+```XML
+<Application.Resources>
+    <DataTemplate DataType="{x:Type customSeverity:QuestionSeverity}">
+        <Image Source="CustomizingSeverity/question.png" Stretch="Uniform"/>
+    </DataTemplate>
+</Application.Resources>
+```
+
+![QuestionSeverity example](Documentation/Media/QuestionSeverityExample.png)
 
 #### Building a new dialog
-
+ 
 TODO
 
 ## How to get
