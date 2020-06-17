@@ -83,8 +83,8 @@
 			</Grid.ColumnDefinitions>
 			<Button 
 				Grid.Column="0" 
-				Command="{Binding Path=CopyToClipboardCommand, ElementName=root}" 
 				CommandParameter="{Binding Path=ValidationSummary, ElementName=root}"
+				Command="{Binding Path=CopyToClipboardCommand, ElementName=root}" 
 				Margin="10"
 				MinWidth="30"
 				ToolTip="{Binding Path=ValidationWPFL8nService.CopyToClipboard, ElementName=root}">

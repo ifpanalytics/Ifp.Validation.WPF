@@ -42,31 +42,35 @@ namespace Ifp.Validation.WPF
         }
         public ValidationSummary ValidationSummary
         {
-            get { return (ValidationSummary)GetValue(ValidationSummaryProperty); }
-            set { SetValue(ValidationSummaryProperty, value); }
+            get => (ValidationSummary)GetValue(ValidationSummaryProperty);
+            set
+            {
+                SetValue(ValidationSummaryProperty, value);
+                CopyToClipboardCommand.RaiseCanExecute();
+            }
         }
 
         public string Header
         {
-            get { return (string)GetValue(HeaderProperty); }
-            set { SetValue(HeaderProperty, value); }
+            get => (string)GetValue(HeaderProperty);
+            set => SetValue(HeaderProperty, value);
         }
         public string HowToProceedMessage
         {
-            get { return (string)GetValue(HowToProceedMessageProperty); }
-            set { SetValue(HowToProceedMessageProperty, value); }
+            get => (string)GetValue(HowToProceedMessageProperty);
+            set => SetValue(HowToProceedMessageProperty, value);
         }
 
         public IValidationWPFL8nService ValidationWPFL8nService
         {
-            get { return (IValidationWPFL8nService)GetValue(ValidationWPFL8nServiceProperty); }
-            set { SetValue(ValidationWPFL8nServiceProperty, value); }
+            get => (IValidationWPFL8nService)GetValue(ValidationWPFL8nServiceProperty);
+            set => SetValue(ValidationWPFL8nServiceProperty, value);
         }
 
         public ICommand OkCommand { get; }
 
         public ICommand CancelCommand { get; }
 
-        public ICommand CopyToClipboardCommand { get; }
+        public CommandBase CopyToClipboardCommand { get; }
     }
 }

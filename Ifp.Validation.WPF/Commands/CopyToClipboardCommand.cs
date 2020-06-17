@@ -17,10 +17,8 @@ namespace Ifp.Validation.WPF.Commands
         }
         protected IValidationWPFL8nService ValidationWPFL8NService { get; }
 
-        public override bool CanExecute(object parameter)
-        {
-            return base.CanExecute(parameter);
-        }
+        public override bool CanExecute(object parameter) 
+            => parameter is ValidationSummary summary && summary.ValidationFailures.Any();
 
         public override void Execute(object parameter)
         {
