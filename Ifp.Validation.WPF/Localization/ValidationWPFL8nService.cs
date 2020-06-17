@@ -35,4 +35,17 @@ namespace Ifp.Validation.WPF.Localization
         public string SeverityError => "Fehler";
         public string SeverityUnknown => "Unbekannt";
     }
+    public class ValidationWPFL8nService_ru_RU : IValidationWPFL8nService
+    {
+        public string Cancel => "Отмена";
+        public string DialogTitle => "Результат экспертизы";
+        public string Header => "Результат проверки";
+        public string OK => "OK";
+        public string ValidationSuccessful => "Проверка успешна!";
+        public string CopyToClipboard => "Скопировать в буфер обмена данными";
+        public string SeverityInfomation => "Информация";
+        public string SeverityWarning => "Предупреждение";
+        public string SeverityError => "Ошибка";
+        public string SeverityUnknown => "Неизвестный";
+    }
 }
