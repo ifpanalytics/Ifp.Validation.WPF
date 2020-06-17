@@ -11,6 +11,12 @@ choice of the user (OK or Cancel):
 
 ## Change log
 
+### Version 2.1
+
+#### Enhancements
+
+- Added Russian translation.
+
 ### Version 2.0
 
 #### Enhancements

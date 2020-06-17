@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Ifp.Validation.WPF</id>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
     <authors>Martin Strecker</authors>
     <owners>Martin Strecker</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,7 +12,7 @@
     <iconUrl>https://cdn1.iconfinder.com/data/icons/material-core/20/check-circle-outline-32.png</iconUrl>
     <description>Provides a dialog to show a ValidationSummary (Ifp.Validation package) in WPF.</description>
     <summary>Ifp.Validation.WPF provides an implementation for the IValidationSummaryPresentationService (Ifp.Validation package) for WPF.</summary>
-    <releaseNotes>Added support to copy the validation result list to the clipboard.</releaseNotes>
+    <releaseNotes>Added Russian translation.</releaseNotes>
     <repository type="git" url="https://github.com/ifpanalytics/Ifp.Validation.WPF" />
     <copyright>2017</copyright>
     <tags>validation,valid,input,dependency injection,testable,extensible,rules,rules engine,WPF,IValidationSummaryPresentationService</tags>
