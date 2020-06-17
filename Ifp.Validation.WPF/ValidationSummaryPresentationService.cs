@@ -34,12 +34,11 @@ namespace Ifp.Validation.WPF
             using (new StandardMousePointer())
             {
 
-                var sw = new ValidationSummaryWindow();
+                var sw = new ValidationSummaryWindow(ValidationWPFL8nService);
                 sw.Title = ValidationWPFL8nService.DialogTitle;
                 sw.Header = String.IsNullOrWhiteSpace(headerText) ? ValidationWPFL8nService.Header : headerText;
                 if (!String.IsNullOrWhiteSpace(howToProceedMessage))
                     sw.HowToProceedMessage = howToProceedMessage;
-                sw.ValidationWPFL8nService = this.ValidationWPFL8nService;
                 sw.ValidationSummary = validationSummary;
                 var res = sw.ShowDialog();
                 return res ?? false;

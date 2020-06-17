@@ -1,3 +1,3 @@
-"%ProgramFiles(x86)%\MSBuild\14.0\bin\msbuild.exe" Ifp.Validation.WPF.csproj /t:Build /p:Configuration="Release 4.6"
-"%ProgramFiles(x86)%\MSBuild\14.0\bin\msbuild.exe" Ifp.Validation.WPF.csproj /t:Build /p:Configuration="Release 4.5"
-"%ProgramFiles(x86)%\MSBuild\14.0\bin\msbuild.exe" Ifp.Validation.WPF.csproj /t:Build;Package /p:Configuration="Release 4.0"
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe" Ifp.Validation.WPF.csproj /t:Restore;Build /p:Configuration="Release 4.6"
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe" Ifp.Validation.WPF.csproj /t:Restore;Build /p:Configuration="Release 4.5"
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe" Ifp.Validation.WPF.csproj /t:Restore;Build;Package /p:Configuration="Release 4.0"

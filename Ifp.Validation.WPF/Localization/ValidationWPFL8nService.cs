@@ -12,8 +12,14 @@ namespace Ifp.Validation.WPF.Localization
         public string Header => "Validation result";
         public string OK => "OK";
         public string ValidationSuccessful => "Validation successful!";
+        public string CopyToClipboard => "Copy to clipboard";
+        public string SeverityInfomation => "Information";
+        public string SeverityWarning => "Warning";
+        public string SeverityError => "Error";
+        public string SeverityUnknown => "Unknown";
+
     }
-    public class ValidationWPFL8nService_en_US: ValidationWPFL8nService
+    public class ValidationWPFL8nService_en_US : ValidationWPFL8nService
     {
     }
     public class ValidationWPFL8nService_de_DE : IValidationWPFL8nService
@@ -23,5 +29,23 @@ namespace Ifp.Validation.WPF.Localization
         public string Header => "Ergebnis der Prüfung";
         public string OK => "OK";
         public string ValidationSuccessful => "Gültigkeitsprüfung erfolgreich!";
+        public string CopyToClipboard => "In Zwischenablage kopieren";
+        public string SeverityInfomation => "Information";
+        public string SeverityWarning => "Warnung";
+        public string SeverityError => "Fehler";
+        public string SeverityUnknown => "Unbekannt";
+    }
+    public class ValidationWPFL8nService_ru_RU : IValidationWPFL8nService
+    {
+        public string Cancel => "Отмена";
+        public string DialogTitle => "Результат экспертизы";
+        public string Header => "Результат проверки";
+        public string OK => "OK";
+        public string ValidationSuccessful => "Проверка успешна!";
+        public string CopyToClipboard => "Скопировать в буфер обмена данными";
+        public string SeverityInfomation => "Информация";
+        public string SeverityWarning => "Предупреждение";
+        public string SeverityError => "Ошибка";
+        public string SeverityUnknown => "Неизвестный";
     }
 }

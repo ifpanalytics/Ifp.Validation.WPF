@@ -1,13 +1,45 @@
 # Introduction
 
-This library contains a WPF specific implementation of the 
+This library contains a WPF specific implementation of the
 [IValidationSummaryPresentationService](https://github.com/ifpanalytics/Ifp.Validation/wiki/T_Ifp_Validation_IValidationSummaryPresentationService) that is defined in
 the [Ifp.Validation](https://github.com/ifpanalytics/Ifp.Validation) Nuget package.
 
-This library can display a [ValidationSummary](https://github.com/ifpanalytics/Ifp.Validation/wiki/T_Ifp_Validation_ValidationSummary) as a dialog and returns the 
+This library can display a [ValidationSummary](https://github.com/ifpanalytics/Ifp.Validation/wiki/T_Ifp_Validation_ValidationSummary) as a dialog and returns the
 choice of the user (OK or Cancel):
 
 ![ValidationSummaryPresenter example](Documentation/Media/ValidationSummaryPresenterExample.png)
+
+```
+PS> Install-Package Ifp.Validation.WPF
+```
+
+## Change log
+
+### Version 2.1
+
+#### Enhancements
+
+- Added Russian translation.
+
+### Version 2.0
+
+#### Enhancements
+
+- [#2](https://github.com/ifpanalytics/Ifp.Validation.WPF/pull/2) Added support to copy the validation result list to the clipboard.
+
+#### Breaking Changes
+
+- `IValidationWPFL8nService` has new members. Any implementing classes needs to add the new members.
+
+### Version 1.2
+
+#### Enhancements
+
+Custom severity sample added.
+
+### Version 1.0
+
+Initial published version
 
 ## How to use
 
@@ -39,20 +71,20 @@ container.RegisterService<IValidationSummaryPresentationService, ValidationSumma
 
 The `ShowValidationSummary` has several overloads with the following parameters:
 
-Parameter                                 | Description | Default
---- | --- | ---
-`ValidationSummary validationSummary` | The summary to present | -
-`bool showOnlyOnFailures` | If `true` the dialog is shown only if there is at least one failure (with information, warning or error severity). Otherwise the methods returns immediately `true`. If `false` the dialog is always shown.| `false`
-`string headerText` | Sets a custom text above the error list | `null` (A default text is shown)
-`string howToProceedMessage` | A text shown between the error list and the buttons. Can be used to inform the user of the consequences of his choice. | `null`
+| Parameter                             | Description                                                                                                                                                                                                 | Default                          |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| `ValidationSummary validationSummary` | The summary to present                                                                                                                                                                                      | -                                |
+| `bool showOnlyOnFailures`             | If `true` the dialog is shown only if there is at least one failure (with information, warning or error severity). Otherwise the methods returns immediately `true`. If `false` the dialog is always shown. | `false`                          |
+| `string headerText`                   | Sets a custom text above the error list                                                                                                                                                                     | `null` (A default text is shown) |
+| `string howToProceedMessage`          | A text shown between the error list and the buttons. Can be used to inform the user of the consequences of his choice.                                                                                      | `null`                           |
 
 ### Customizing the dialog
 
 The dialog can be customized in three ways:
 
-* Customizing the text
-* Providing custom Severities
-* Building a new dialog
+- Customizing the text
+- Providing custom Severities
+- Building a new dialog
 
 #### Customizing the text
 
@@ -71,7 +103,7 @@ public interface IValidationWPFL8nService
 
 #### Providing custom severities
 
-The [Ifp.Validation](https://github.com/ifpanalytics/Ifp.Validation) package allows the implementation of custom 
+The [Ifp.Validation](https://github.com/ifpanalytics/Ifp.Validation) package allows the implementation of custom
 [severities](https://github.com/ifpanalytics/Ifp.Validation/wiki/T_Ifp_Validation_ValidationSeverity) and
 [outcomes](https://github.com/ifpanalytics/Ifp.Validation/wiki/T_Ifp_Validation_ValidationOutcome) like this:
 
@@ -94,7 +126,7 @@ public class QuestionOutcome : ValidationOutcomeWithMessage
 ```
 
 To provide an icon for the custom severity a `DataTemplate` for the custom severity must be provided. This `DataTemplate` can
-be located in the `Resource` dictionary of `App.xaml`. 
+be located in the `Resource` dictionary of `App.xaml`.
 
 ```XML
 <Application.Resources>
@@ -107,13 +139,13 @@ be located in the `Resource` dictionary of `App.xaml`.
 ![QuestionSeverity example](Documentation/Media/QuestionSeverityExample.png)
 
 #### Building a new dialog
- 
+
 TODO
 
-## How to get
+## How to install
 
 The library can be installed via Nuget [nuget.org/packages/Ifp.Validation.WPF](https://www.nuget.org/packages/Ifp.Validation.WPF/)
 
-```CS
+```
 PS> Install-Package Ifp.Validation.WPF
 ```

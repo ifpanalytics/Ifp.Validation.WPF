@@ -1,5 +1,5 @@
-﻿using Ifp.Validation.WPF.Localization;
-using System;
+﻿using Ifp.Validation.WPF.Commands;
+using Ifp.Validation.WPF.Localization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,91 +32,45 @@ namespace Ifp.Validation.WPF
         public static readonly DependencyProperty ValidationWPFL8nServiceProperty =
             DependencyProperty.Register("ValidationWPFL8nService", typeof(IValidationWPFL8nService), typeof(ValidationSummaryWindow), new PropertyMetadata());
 
-
-
-        abstract class WindowCommandBase : ICommand
+        public ValidationSummaryWindow(IValidationWPFL8nService validationWPFL8NService)
         {
-            readonly ValidationSummaryWindow _Owner;
-
-            public event EventHandler CanExecuteChanged;
-
-            public WindowCommandBase(ValidationSummaryWindow owner)
-            {
-                _Owner = owner;
-            }
-            protected ValidationSummaryWindow Owner => _Owner;
-
-            public virtual bool CanExecute(object parameter) => true;
-
-            protected virtual void OnCanExecuteChanged()
-            {
-                var tmp = CanExecuteChanged;
-                if (tmp == null) return;
-                tmp(this, EventArgs.Empty);
-            }
-            public abstract void Execute(object parameter);
-        }
-
-        class OkCommandClass : WindowCommandBase
-        {
-            public OkCommandClass(ValidationSummaryWindow owner)
-                : base(owner)
-            {
-
-            }
-            public override void Execute(object parameter)
-            {
-                Owner.DialogResult = true;
-                Owner.Close();
-            }
-        }
-
-        class CancelCommandClass : WindowCommandBase
-        {
-            public CancelCommandClass(ValidationSummaryWindow owner)
-                : base(owner)
-            {
-
-            }
-
-            public override void Execute(object parameter)
-            {
-                Owner.DialogResult = false;
-                Owner.Close();
-            }
-        }
-
-        public ValidationSummaryWindow()
-        {
-            OkCommand = new OkCommandClass(this);
-            CancelCommand = new CancelCommandClass(this);
+            OkCommand = new OkCommand(this);
+            CancelCommand = new CancelCommand(this);
+            CopyToClipboardCommand = new CopyToClipboardCommand(validationWPFL8NService);
+            this.ValidationWPFL8nService = validationWPFL8NService;
             InitializeComponent();
         }
         public ValidationSummary ValidationSummary
         {
-            get { return (ValidationSummary)GetValue(ValidationSummaryProperty); }
-            set { SetValue(ValidationSummaryProperty, value); }
+            get => (ValidationSummary)GetValue(ValidationSummaryProperty);
+            set
+            {
+                SetValue(ValidationSummaryProperty, value);
+                CopyToClipboardCommand.RaiseCanExecute();
+            }
         }
 
         public string Header
         {
-            get { return (string)GetValue(HeaderProperty); }
-            set { SetValue(HeaderProperty, value); }
+            get => (string)GetValue(HeaderProperty);
+            set => SetValue(HeaderProperty, value);
         }
         public string HowToProceedMessage
         {
-            get { return (string)GetValue(HowToProceedMessageProperty); }
-            set { SetValue(HowToProceedMessageProperty, value); }
+            get => (string)GetValue(HowToProceedMessageProperty);
+            set => SetValue(HowToProceedMessageProperty, value);
         }
 
         public IValidationWPFL8nService ValidationWPFL8nService
         {
-            get { return (IValidationWPFL8nService)GetValue(ValidationWPFL8nServiceProperty); }
-            set { SetValue(ValidationWPFL8nServiceProperty, value); }
+            get => (IValidationWPFL8nService)GetValue(ValidationWPFL8nServiceProperty);
+            set => SetValue(ValidationWPFL8nServiceProperty, value);
         }
 
         public ICommand OkCommand { get; }
 
         public ICommand CancelCommand { get; }
+
+        public CommandBase CopyToClipboardCommand { get; }
     }
 }
