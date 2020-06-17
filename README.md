@@ -9,6 +9,10 @@ choice of the user (OK or Cancel):
 
 ![ValidationSummaryPresenter example](Documentation/Media/ValidationSummaryPresenterExample.png)
 
+```
+PS> Install-Package Ifp.Validation.WPF
+```
+
 ## Change log
 
 ### Version 2.1
@@ -142,6 +146,6 @@ TODO
 
 The library can be installed via Nuget [nuget.org/packages/Ifp.Validation.WPF](https://www.nuget.org/packages/Ifp.Validation.WPF/)
 
-```CS
+```
 PS> Install-Package Ifp.Validation.WPF
 ```
