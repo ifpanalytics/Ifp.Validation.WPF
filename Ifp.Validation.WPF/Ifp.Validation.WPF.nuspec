@@ -1,31 +1,39 @@
-<?xml version="1.0"?>
-<package >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Ifp.Validation.WPF</id>
-    <version>1.2.0.0</version>
+    <version>1.2.0</version>
     <authors>Martin Strecker</authors>
     <owners>Martin Strecker</owners>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <icon>images\iconfinder_check-circle-outline_326568.png</icon>
     <projectUrl>https://github.com/ifpanalytics/Ifp.Validation.WPF</projectUrl>
     <iconUrl>https://cdn1.iconfinder.com/data/icons/material-core/20/check-circle-outline-32.png</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Provides a dialog to show a ValidationSummary (Ifp.Validation package) in WPF.</description>
     <summary>Ifp.Validation.WPF provides an implementation for the IValidationSummaryPresentationService (Ifp.Validation package) for WPF.</summary>
     <releaseNotes></releaseNotes>
     <copyright>2017</copyright>
     <tags>validation,valid,input,dependency injection,testable,extensible,rules,rules engine,WPF,IValidationSummaryPresentationService</tags>
     <dependencies>
-      <dependency id="Ifp.Validation" version="1.2" />
+      <group>
+        <dependency id="Ifp.Validation" version="1.2.0" />      
+      </group>
+      <group targetFramework=".NETFramework4.0">
+      </group>
+      <group targetFramework=".NETFramework4.5">
+      </group>
+      <group targetFramework=".NETFramework4.6">
+      </group>
     </dependencies>
   </metadata>
   <files>
     <file src="bin\Release\net40\Ifp.Validation.WPF.dll" target="lib\net40\Ifp.Validation.WPF.dll" />
     <file src="bin\Release\net40\Ifp.Validation.WPF.pdb" target="lib\net40\Ifp.Validation.WPF.pdb" />
-    
     <file src="bin\Release\net45\Ifp.Validation.WPF.dll" target="lib\net45\Ifp.Validation.WPF.dll" />
     <file src="bin\Release\net45\Ifp.Validation.WPF.pdb" target="lib\net45\Ifp.Validation.WPF.pdb" />
-    
     <file src="bin\Release\net46\Ifp.Validation.WPF.dll" target="lib\net46\Ifp.Validation.WPF.dll" />
     <file src="bin\Release\net46\Ifp.Validation.WPF.pdb" target="lib\net46\Ifp.Validation.WPF.pdb" />
-  </files>  
+    <file src="..\Documentation\Media\iconfinder_check-circle-outline_326568.png" target="images\" />
+  </files>
 </package>

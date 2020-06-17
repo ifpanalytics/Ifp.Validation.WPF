@@ -21,7 +21,11 @@ choice of the user (OK or Cancel):
 
 - `IValidationWPFL8nService` has new members. Any implementing classes needs to add the new members.
 
-#### Bugfixes
+### Version 1.2
+
+#### Enhancements
+
+Custom severity sample added.
 
 ### Version 1.0
 
