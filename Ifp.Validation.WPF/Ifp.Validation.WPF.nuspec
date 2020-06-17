@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Ifp.Validation.WPF</id>
-    <version>1.2.0</version>
+    <version>2.0.0</version>
     <authors>Martin Strecker</authors>
     <owners>Martin Strecker</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -17,7 +17,7 @@
     <tags>validation,valid,input,dependency injection,testable,extensible,rules,rules engine,WPF,IValidationSummaryPresentationService</tags>
     <dependencies>
       <group>
-        <dependency id="Ifp.Validation" version="1.2.0" />      
+        <dependency id="Ifp.Validation" version="1.2.0" />
       </group>
       <group targetFramework=".NETFramework4.0">
       </group>
