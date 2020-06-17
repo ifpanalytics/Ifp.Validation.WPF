@@ -12,7 +12,8 @@
     <iconUrl>https://cdn1.iconfinder.com/data/icons/material-core/20/check-circle-outline-32.png</iconUrl>
     <description>Provides a dialog to show a ValidationSummary (Ifp.Validation package) in WPF.</description>
     <summary>Ifp.Validation.WPF provides an implementation for the IValidationSummaryPresentationService (Ifp.Validation package) for WPF.</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Added support to copy the validation result list to the clipboard.</releaseNotes>
+    <repository type="git" url="https://github.com/ifpanalytics/Ifp.Validation.WPF" />
     <copyright>2017</copyright>
     <tags>validation,valid,input,dependency injection,testable,extensible,rules,rules engine,WPF,IValidationSummaryPresentationService</tags>
     <dependencies>
