@@ -75,12 +75,19 @@
             <my:ValidationSummaryPresenter ValidationSummary="{Binding ValidationSummary, ElementName=root}" ValidationWPFL8nService="{Binding Path=ValidationWPFL8nService, ElementName=root}"/>
         </Border>
         <TextBlock Grid.Row="2" Text="{Binding Path=HowToProceedMessage, ElementName=root}" HorizontalAlignment="Center" TextAlignment="Center" Margin="10" TextWrapping="Wrap" />
-        <StackPanel Grid.Row="3" HorizontalAlignment="Right">
-            <my:ValidationSummaryButtons 
+		<Grid Grid.Row="3">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+			<Button Grid.Column="0" Content="Copy" Command="{Binding Path=CopyToClipboardCommand, ElementName=root}" CommandParameter="{Binding Path=ValidationSummary, ElementName=root}"/>
+			<my:ValidationSummaryButtons 
+				Grid.Column="2"
                 ValidationSummary="{Binding ValidationSummary, ElementName=root}" 
                 OkCommand="{Binding Path=OkCommand, ElementName=root}" 
                 CancelCommand="{Binding CancelCommand, ElementName=root}"
                 ValidationWPFL8nService="{Binding Path=ValidationWPFL8nService, ElementName=root}"/>
-        </StackPanel>
+		</Grid>
     </Grid>
 </Window>

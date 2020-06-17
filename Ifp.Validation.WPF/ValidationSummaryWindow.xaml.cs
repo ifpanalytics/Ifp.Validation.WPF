@@ -1,5 +1,5 @@
-﻿using Ifp.Validation.WPF.Localization;
-using System;
+﻿using Ifp.Validation.WPF.Commands;
+using Ifp.Validation.WPF.Localization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,64 +32,11 @@ namespace Ifp.Validation.WPF
         public static readonly DependencyProperty ValidationWPFL8nServiceProperty =
             DependencyProperty.Register("ValidationWPFL8nService", typeof(IValidationWPFL8nService), typeof(ValidationSummaryWindow), new PropertyMetadata());
 
-
-
-        abstract class WindowCommandBase : ICommand
-        {
-            readonly ValidationSummaryWindow _Owner;
-
-            public event EventHandler CanExecuteChanged;
-
-            public WindowCommandBase(ValidationSummaryWindow owner)
-            {
-                _Owner = owner;
-            }
-            protected ValidationSummaryWindow Owner => _Owner;
-
-            public virtual bool CanExecute(object parameter) => true;
-
-            protected virtual void OnCanExecuteChanged()
-            {
-                var tmp = CanExecuteChanged;
-                if (tmp == null) return;
-                tmp(this, EventArgs.Empty);
-            }
-            public abstract void Execute(object parameter);
-        }
-
-        class OkCommandClass : WindowCommandBase
-        {
-            public OkCommandClass(ValidationSummaryWindow owner)
-                : base(owner)
-            {
-
-            }
-            public override void Execute(object parameter)
-            {
-                Owner.DialogResult = true;
-                Owner.Close();
-            }
-        }
-
-        class CancelCommandClass : WindowCommandBase
-        {
-            public CancelCommandClass(ValidationSummaryWindow owner)
-                : base(owner)
-            {
-
-            }
-
-            public override void Execute(object parameter)
-            {
-                Owner.DialogResult = false;
-                Owner.Close();
-            }
-        }
-
         public ValidationSummaryWindow()
         {
-            OkCommand = new OkCommandClass(this);
-            CancelCommand = new CancelCommandClass(this);
+            OkCommand = new OkCommand(this);
+            CancelCommand = new CancelCommand(this);
+            CopyToClipboardCommand = new CopyToClipboardCommand();
             InitializeComponent();
         }
         public ValidationSummary ValidationSummary
@@ -118,5 +65,7 @@ namespace Ifp.Validation.WPF
         public ICommand OkCommand { get; }
 
         public ICommand CancelCommand { get; }
+
+        public ICommand CopyToClipboardCommand { get; }
     }
 }

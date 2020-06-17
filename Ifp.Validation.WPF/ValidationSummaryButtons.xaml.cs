@@ -57,9 +57,9 @@ namespace Ifp.Validation.WPF
         private static void EnableCommands(ValidationSummaryButtons d, ValidationSeverity validationSeverity)
         {
             var causesCancel = validationSeverity == null ? false : validationSeverity.CausesCancel;
-            var allowsCancel = validationSeverity==null?false:validationSeverity.AllowsCancel;
+            var allowsCancel = validationSeverity == null ? false : validationSeverity.AllowsCancel;
             d.bt_Ok.IsEnabled = !causesCancel;
-            d.bt_Cancel.Visibility = (causesCancel || allowsCancel) ? Visibility.Visible : Visibility.Collapsed; 
+            d.bt_Cancel.Visibility = (causesCancel || allowsCancel) ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public ValidationSummary ValidationSummary
