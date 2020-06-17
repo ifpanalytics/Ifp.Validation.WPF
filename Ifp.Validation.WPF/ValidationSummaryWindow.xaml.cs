@@ -32,11 +32,12 @@ namespace Ifp.Validation.WPF
         public static readonly DependencyProperty ValidationWPFL8nServiceProperty =
             DependencyProperty.Register("ValidationWPFL8nService", typeof(IValidationWPFL8nService), typeof(ValidationSummaryWindow), new PropertyMetadata());
 
-        public ValidationSummaryWindow()
+        public ValidationSummaryWindow(IValidationWPFL8nService validationWPFL8NService)
         {
             OkCommand = new OkCommand(this);
             CancelCommand = new CancelCommand(this);
-            CopyToClipboardCommand = new CopyToClipboardCommand();
+            CopyToClipboardCommand = new CopyToClipboardCommand(validationWPFL8NService);
+            this.ValidationWPFL8nService = validationWPFL8NService;
             InitializeComponent();
         }
         public ValidationSummary ValidationSummary

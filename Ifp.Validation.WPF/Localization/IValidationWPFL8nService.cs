@@ -12,5 +12,10 @@ namespace Ifp.Validation.WPF.Localization
         string ValidationSuccessful { get; }
         string DialogTitle { get; }
         string Header { get; }
+        string CopyToClipboard { get; }
+        string SeverityInfomation { get; }
+        string SeverityWarning { get; }
+        string SeverityError { get; }
+        string SeverityUnknown { get; }
     }
 }

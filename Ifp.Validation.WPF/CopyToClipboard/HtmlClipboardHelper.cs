@@ -14,7 +14,7 @@ namespace Ifp.Validation.WPF.CopyToClipboard
     /// <remarks>
     /// The MIT License (MIT) Copyright (c) 2014 Arthur Teplitzki.
     /// </remarks>
-    public static class ClipboardHelper
+    public static class HtmlClipboardHelper
     {
         #region Fields and Consts
 
